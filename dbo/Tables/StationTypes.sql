@@ -40,7 +40,7 @@
 	[DefenseTypeShield] [tinyint] NOT NULL ,
 	[BuilderName] char (24) NULL ,
 	[ConstructionDroneTypeID] [smallint] NOT NULL
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[StationTypes] ADD 
 	CONSTRAINT [FK_StationTypes_Drones] FOREIGN KEY 
@@ -59,10 +59,10 @@ ALTER TABLE [dbo].[StationTypes] ADD 	CONSTRAINT [FK_StationTypes_StationTypes] 
 GO
 ALTER TABLE [dbo].[StationTypes] WITH NOCHECK ADD 
 
-	CONSTRAINT [PK_StationTypes] PRIMARY KEY  NONCLUSTERED 
+	CONSTRAINT [PK_StationTypes] PRIMARY KEY CLUSTERED 
 	(
 		[StationTypeID]
-	)  ON [PRIMARY] 
+	)   
 GO
 ALTER TABLE [dbo].[StationTypes] WITH NOCHECK ADD 	CONSTRAINT [CK_StationTypes] CHECK ([Radius] > 0 and [HitPointsArmor] > 0 and [HitPointsShield] >= 0 and [RateRegenArmor] >= 0 and [RateRegenShield] >= 0 and [Price] > 0 and [Signature] >= 0 and [SecondsToBuild] > 0 and [ScanRange] >= 0 and [UpgradeStationTypeID] < [StationTypeID])
 GO

@@ -6,7 +6,7 @@
 	[OffRate] [real] NOT NULL ,
 	[EngageSound] smallint NOT NULL ,
 	[DisengageSound] smallint NOT NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[Cloaks] ADD 
 	CONSTRAINT [FK_Cloaks_Parts] FOREIGN KEY 
@@ -20,8 +20,8 @@ ALTER TABLE [dbo].[Cloaks] WITH NOCHECK ADD 	CONSTRAINT [DF_Cloaks_EngageSound] 
 GO
 ALTER TABLE [dbo].[Cloaks] WITH NOCHECK ADD 	CONSTRAINT [DF_Cloaks_DisengageSound] DEFAULT (660) FOR [DisengageSound]
 GO
-ALTER TABLE [dbo].[Cloaks] WITH NOCHECK ADD 	CONSTRAINT [PK_Cloaks] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[Cloaks] WITH NOCHECK ADD 	CONSTRAINT [PK_Cloaks] PRIMARY KEY  CLUSTERED 
 	(
 		[PartID]
-	)  ON [PRIMARY]
+	)  
 GO

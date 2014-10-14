@@ -3,7 +3,7 @@
 	[Chance] [tinyint] NOT NULL ,
 	[TreasureSetID] [smallint] NOT NULL ,
 	[TreasureCode] [tinyint] NOT NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[TreasureChances] ADD 
 	CONSTRAINT [FK_TreasureChance_Parts] FOREIGN KEY 
@@ -24,12 +24,12 @@ ALTER TABLE [dbo].[TreasureChances] WITH NOCHECK ADD 	CONSTRAINT [DF_TreasureCha
 GO
 ALTER TABLE [dbo].[TreasureChances] ADD 	CONSTRAINT [DF_TreasureChances_TreasureCode] DEFAULT (1) FOR [TreasureCode]
 GO
-ALTER TABLE [dbo].[TreasureChances] ADD 	CONSTRAINT [PK_TreasureChances] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[TreasureChances] ADD 	CONSTRAINT [PK_TreasureChances] PRIMARY KEY  CLUSTERED 
 	(
 		[TreasureSetID],
 		[ObjectID]
-	)  ON [PRIMARY]
+	)  
 GO
-CREATE  INDEX [IX_TreasureChance_PartID] ON [dbo].[TreasureChances]([ObjectID]) ON [PRIMARY]
+CREATE  INDEX [IX_TreasureChance_PartID] ON [dbo].[TreasureChances]([ObjectID]) 
 GO
-CREATE  INDEX [IX_TreasureChance_SetID] ON [dbo].[TreasureChances]([TreasureSetID]) ON [PRIMARY]
+CREATE  INDEX [IX_TreasureChance_SetID] ON [dbo].[TreasureChances]([TreasureSetID]) 

@@ -14,7 +14,7 @@
 	[Signature] [real] NOT NULL ,
 	[Texture] char (12) NOT NULL ,
 	[PRIcon] char (12) NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[AlephInstances] ADD 
 	CONSTRAINT [FK_AlephInstances_SectorInfo] FOREIGN KEY 
@@ -36,13 +36,13 @@ ALTER TABLE [dbo].[AlephInstances] WITH NOCHECK ADD 	CONSTRAINT [DF_AlephInstanc
 GO
 ALTER TABLE [dbo].[AlephInstances] WITH NOCHECK ADD 	CONSTRAINT [DF_AlephInstances_PRIcon] DEFAULT ('aleph') FOR [PRIcon]
 GO
-ALTER TABLE [dbo].[AlephInstances] WITH NOCHECK ADD 	CONSTRAINT [PK_AlephInstances] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[AlephInstances] WITH NOCHECK ADD 	CONSTRAINT [PK_AlephInstances] PRIMARY KEY  CLUSTERED 
 	(
 		[AlephID],
 		[MapID]
-	)  ON [PRIMARY]
+	)  
 GO
-CREATE  INDEX [IX_AlephInstances_SectorID] ON [dbo].[AlephInstances]([SectorID]) ON [PRIMARY]
+CREATE  INDEX [IX_AlephInstances_SectorID] ON [dbo].[AlephInstances]([SectorID]) 
 GO
 CREATE Trigger Aleph_InsUpd
 On dbo.AlephInstances

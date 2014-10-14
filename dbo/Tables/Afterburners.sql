@@ -7,7 +7,7 @@
 	[rateOff] [real] NOT NULL ,
 	[InteriorSound] smallint NOT NULL ,
 	[ExteriorSound] smallint NOT NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[Afterburners] ADD 
 	CONSTRAINT [FK_Afterburners_Parts] FOREIGN KEY 
@@ -21,7 +21,7 @@ ALTER TABLE [dbo].[Afterburners] WITH NOCHECK ADD 	CONSTRAINT [DF_Afterburners_I
 GO
 ALTER TABLE [dbo].[Afterburners] WITH NOCHECK ADD 	CONSTRAINT [DF_Afterburners_ExteriorSound] DEFAULT (700) FOR [ExteriorSound]
 GO
-ALTER TABLE [dbo].[Afterburners] WITH NOCHECK ADD 	CONSTRAINT [PK_Afterburners] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[Afterburners] WITH NOCHECK ADD 	CONSTRAINT [PK_Afterburners] PRIMARY KEY  CLUSTERED 
 	(
 		[PartID]
-	)  ON [PRIMARY]
+	)  

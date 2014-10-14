@@ -8,7 +8,7 @@
 	[AmbientSound] smallint NOT NULL ,
 	[Ammo] [smallint] NOT NULL ,
 	[dtRipcord] [tinyint] NOT NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[Probes] ADD 
 	CONSTRAINT [FK_Probes_Expendable] FOREIGN KEY 
@@ -37,7 +37,7 @@ ALTER TABLE [dbo].[Probes] WITH NOCHECK ADD 	CONSTRAINT [DF_Probes_Ammo] DEFAULT
 GO
 ALTER TABLE [dbo].[Probes] WITH NOCHECK ADD 	CONSTRAINT [DF_Probes_dtRipcord] DEFAULT (255) FOR [dtRipcord]
 GO
-ALTER TABLE [dbo].[Probes] WITH NOCHECK ADD 	CONSTRAINT [PK_Probes] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[Probes] WITH NOCHECK ADD 	CONSTRAINT [PK_Probes] PRIMARY KEY  CLUSTERED 
 	(
 		[ExpendableID]
-	)  ON [PRIMARY]
+	)  

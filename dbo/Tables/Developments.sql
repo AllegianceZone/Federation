@@ -12,7 +12,7 @@
 	[GroupID] tinyint NULL ,
 	[SortOrder] int NULL ,
 	[CompletedSound] smallint NOT NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[Developments] ADD 
 	CONSTRAINT [FK_Developments_GlobalAttributes] FOREIGN KEY 
@@ -32,10 +32,10 @@ ALTER TABLE [dbo].[Developments] WITH NOCHECK ADD 	CONSTRAINT [DF_Developments_S
 GO
 ALTER TABLE [dbo].[Developments] WITH NOCHECK ADD 	CONSTRAINT [DF_Developments_GroupID] DEFAULT (1) FOR [GroupID]
 GO
-ALTER TABLE [dbo].[Developments] WITH NOCHECK ADD 	CONSTRAINT [PK_Developments] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[Developments] WITH NOCHECK ADD 	CONSTRAINT [PK_Developments] PRIMARY KEY  CLUSTERED 
 	(
 		[DevelopmentID]
-	)  ON [PRIMARY] 
+	)   
 GO
 ALTER TABLE [dbo].[Developments] WITH NOCHECK ADD	CONSTRAINT [CK_Developments] CHECK ([Price] > 0)
 GO

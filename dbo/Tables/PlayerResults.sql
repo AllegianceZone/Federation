@@ -1,4 +1,5 @@
 ﻿CREATE TABLE [dbo].[PlayerResults] (
+	ID int identity not null primary key clustered,
 	[GameID] [char] (17) NOT NULL ,
 	[TeamID] [smallint] NOT NULL ,
 	[Name] char (24) NOT NULL ,
@@ -21,8 +22,8 @@
 	[CombatRating] [real] NOT NULL ,
 	[Score] [real] NOT NULL ,
 	[TimePlayed] [int] NOT NULL 
-) ON [PRIMARY]
+) 
 GO
-CREATE  INDEX [IX_PlayerResults_GameID] ON [dbo].[PlayerResults]([GameID]) ON [PRIMARY]
+CREATE  INDEX [IX_PlayerResults_GameID] ON [dbo].[PlayerResults]([GameID]) 
 GO
-CREATE  INDEX [IX_PlayerResults_Name] ON [dbo].[PlayerResults]([Name]) ON [PRIMARY]
+CREATE  INDEX [IX_PlayerResults_Name] ON [dbo].[PlayerResults]([Name]) 

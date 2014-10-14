@@ -7,7 +7,7 @@
 	[OwnershipLog] [varchar] (500) NOT NULL ,
 	[CivID] [smallint] NULL ,
 	[GamesPlayed] [smallint] NOT NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[Squads] WITH NOCHECK ADD 	CONSTRAINT [DF_Squads_Score] DEFAULT (0) FOR [Score]
 GO
@@ -19,18 +19,18 @@ ALTER TABLE [dbo].[Squads] WITH NOCHECK ADD 	CONSTRAINT [DF_Squads_OwnershipLog]
 GO
 ALTER TABLE [dbo].[Squads] WITH NOCHECK ADD 	CONSTRAINT [DF_Squads_GamesPlayed] DEFAULT (0) FOR [GamesPlayed]
 GO
-ALTER TABLE [dbo].[Squads] WITH NOCHECK ADD 	CONSTRAINT [PK_Squads] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[Squads] WITH NOCHECK ADD 	CONSTRAINT [PK_Squads] PRIMARY KEY  CLUSTERED 
 	(
 		[SquadID]
-	)  ON [PRIMARY] 
+	)   
 GO
 ALTER TABLE [dbo].[Squads] WITH NOCHECK ADD 	CONSTRAINT [IX_Squads_Name] UNIQUE  NONCLUSTERED 
 	(
 		[SquadName]
-	)  ON [PRIMARY]
+	)  
 GO
-CREATE  INDEX [IX_Squads_Score] ON [dbo].[Squads]([Score]) ON [PRIMARY]
+CREATE  INDEX [IX_Squads_Score] ON [dbo].[Squads]([Score]) 
 GO
-CREATE  INDEX [IX_Squads_Wins] ON [dbo].[Squads]([Wins]) ON [PRIMARY]
+CREATE  INDEX [IX_Squads_Wins] ON [dbo].[Squads]([Wins]) 
 GO
-CREATE  INDEX [IX_Squads_Losses] ON [dbo].[Squads]([Losses]) ON [PRIMARY]
+CREATE  INDEX [IX_Squads_Losses] ON [dbo].[Squads]([Losses]) 

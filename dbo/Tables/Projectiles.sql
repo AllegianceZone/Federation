@@ -24,7 +24,7 @@
 	[WidthOverHeight] [real] NOT NULL ,
 	[PRIcon] char (12) NULL ,
 	[AmbientSound] smallint NOT NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[Projectiles] WITH NOCHECK ADD 	CONSTRAINT [DF_Projectiles_DamageType] DEFAULT (0) FOR [DamageType]
 GO
@@ -36,9 +36,9 @@ ALTER TABLE [dbo].[Projectiles] WITH NOCHECK ADD 	CONSTRAINT [DF_Projectiles_Wid
 GO
 ALTER TABLE [dbo].[Projectiles] WITH NOCHECK ADD 	CONSTRAINT [DF_Projectiles_AmbientSound] DEFAULT ((-1)) FOR [AmbientSound]
 GO
-ALTER TABLE [dbo].[Projectiles] WITH NOCHECK ADD 	CONSTRAINT [PK_Projectiles] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[Projectiles] WITH NOCHECK ADD 	CONSTRAINT [PK_Projectiles] PRIMARY KEY  CLUSTERED 
 	(
 		[ProjectileID]
-	)  ON [PRIMARY] 
+	)   
 GO
 ALTER TABLE [dbo].[Projectiles] WITH NOCHECK ADD 	CONSTRAINT [CK_Projectiles] CHECK ([Size_cm] > 0 and [TimeDuration] >= 200 and [SpeedMax] <= 5000 and [SpeedMax] > 50)

@@ -18,7 +18,7 @@
 	[UpY] [real] NOT NULL ,
 	[UpZ] [real] NOT NULL ,
 	[StationTypeID] [smallint] NOT NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[StationInstances] ADD 
 	CONSTRAINT [FK_StationInstances_SectorInfo] FOREIGN KEY 
@@ -38,13 +38,13 @@ ALTER TABLE [dbo].[StationInstances] WITH NOCHECK ADD 	CONSTRAINT [DF_StationIns
 GO
 ALTER TABLE [dbo].[StationInstances] WITH NOCHECK ADD 	CONSTRAINT [DF_StationInstances_RotationR] DEFAULT (0) FOR [RotationR]
 GO
-ALTER TABLE [dbo].[StationInstances] WITH NOCHECK ADD 	CONSTRAINT [PK_StationInstances] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[StationInstances] WITH NOCHECK ADD 	CONSTRAINT [PK_StationInstances] PRIMARY KEY  CLUSTERED 
 	(
 		[MapID],
 		[StationID]
-	)  ON [PRIMARY]
+	)  
 GO
-CREATE  INDEX [IX_StationInstances] ON [dbo].[StationInstances]([SectorID]) ON [PRIMARY]
+CREATE  INDEX [IX_StationInstances] ON [dbo].[StationInstances]([SectorID]) 
 GO
 Create Trigger StationInstances_Trigger_InsUpd
 On dbo.StationInstances

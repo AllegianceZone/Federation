@@ -27,4 +27,4 @@ ALTER TABLE [dbo].[CharMedals] ADD 	CONSTRAINT [FK_CharMedals_Medals] FOREIGN KE
 		[MedalID]
 	)
 GO
-CREATE  CLUSTERED  INDEX [IX_CharMedals] ON [dbo].[CharMedals]([CharacterID], [CivID]) ON [PRIMARY]
+CREATE  CLUSTERED  INDEX [IX_CharMedals] ON [dbo].[CharMedals]([CharacterID], [CivID]) 

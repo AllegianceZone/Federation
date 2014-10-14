@@ -1,4 +1,5 @@
 ﻿CREATE TABLE [dbo].[Constants] (
+	[ID] int identity not null primary key clustered,
 	[PointsWin] [float] NOT NULL ,
 	[PointsWarpsSpotted] [float] NOT NULL ,
 	[PointsAsteroidsSpotted] [float] NOT NULL ,
@@ -14,7 +15,7 @@
 	[PointsPilotBaseCaptures] [float] NOT NULL ,
 	[PointsFlagCapture] [float] NOT NULL ,
 	[PointsArtifactCapture] [float] NOT NULL 
-) ON [PRIMARY]
+) 
 GO
 Create Trigger Constants_Insert
 On dbo.Constants

@@ -66,7 +66,7 @@
 	[RipcordSpeed] [real] NOT NULL ,
 	[ECM] [real] NOT NULL ,
 	[RipcordCost] [real] NOT NULL
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[ShipTypes] ADD 
 	CONSTRAINT [FK_ShipTypes_Parts] FOREIGN KEY 
@@ -236,10 +236,10 @@ ALTER TABLE [dbo].[ShipTypes] WITH NOCHECK ADD 	CONSTRAINT [DF_ShipTypes_Seconds
 GO
 ALTER TABLE [dbo].[ShipTypes] WITH NOCHECK ADD 	CONSTRAINT [DF_ShipTypes_GroupID] DEFAULT (0) FOR [GroupID]
 GO
-ALTER TABLE [dbo].[ShipTypes] WITH NOCHECK ADD 	CONSTRAINT [PK_ShipStats] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[ShipTypes] WITH NOCHECK ADD 	CONSTRAINT [PK_ShipStats] PRIMARY KEY  CLUSTERED 
 	(
 		[ShipTypeID]
-	)  ON [PRIMARY] 
+	)   
 GO
 ALTER TABLE [dbo].[ShipTypes] WITH NOCHECK ADD 	CONSTRAINT [CK_ShipTypes] CHECK ([Length] > 0 and [Weight] > 0 and [Price] >= 0 and [BaseMaxSpeed] > 0 and [BaseHitPoints] > 0 and [BaseScannerRange] > 0 and [MaxRollRate] >= 0 and [MaxPitchRate] >= 0 and [DriftRoll] > 0 and [DriftPitch] > 0 and [DriftYaw] > 0 and [Acceleration] > 0 and [BaseSignature] >= 10 and [EnergyMax] >= 0 and [RateRechargeEnergy] >= 0 and [MaxAmmo] >= 0 and [MaxFuel] >= 0)
 GO

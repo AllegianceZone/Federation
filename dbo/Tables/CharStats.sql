@@ -16,7 +16,7 @@
 	[WinsCmd] [smallint] NOT NULL ,
 	[LossesCmd] [smallint] NOT NULL ,
 	[LastPlayed] [smalldatetime] NOT NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[CharStats] ADD 
 	CONSTRAINT [FK_CharStats_CharacterInfo] FOREIGN KEY 
@@ -59,36 +59,36 @@ ALTER TABLE [dbo].[CharStats] WITH NOCHECK ADD 	CONSTRAINT [DF_CharStats_WinsCmd
 GO
 ALTER TABLE [dbo].[CharStats] WITH NOCHECK ADD 	CONSTRAINT [DF_CharStats_LossesCmd] DEFAULT (0) FOR [LossesCmd]
 GO
-ALTER TABLE [dbo].[CharStats] WITH NOCHECK ADD 	CONSTRAINT [IX_CharStats] UNIQUE  NONCLUSTERED 
+ALTER TABLE [dbo].[CharStats] WITH NOCHECK ADD 	CONSTRAINT [IX_CharStats] UNIQUE  CLUSTERED 
 	(
 		[CharacterID],
 		[CivID]
-	)  ON [PRIMARY] 
+	)   
 GO
 ALTER TABLE [dbo].[CharStats] WITH NOCHECK ADD 	CONSTRAINT [CK_CharStats] CHECK ([CivID] > 0)
 GO
-CREATE  INDEX [IX_CharStats_GamesPlayed] ON [dbo].[CharStats]([CivID], [GamesPlayed], [CharacterID]) ON [PRIMARY]
+CREATE  INDEX [IX_CharStats_GamesPlayed] ON [dbo].[CharStats]([CivID], [GamesPlayed], [CharacterID]) 
 GO
-CREATE  INDEX [IX_CharStats_Deaths] ON [dbo].[CharStats]([CivID], [Deaths], [CharacterID]) ON [PRIMARY]
+CREATE  INDEX [IX_CharStats_Deaths] ON [dbo].[CharStats]([CivID], [Deaths], [CharacterID]) 
 GO
-CREATE  INDEX [IX_CharStats_Wins] ON [dbo].[CharStats]([CivID], [Wins], [CharacterID]) ON [PRIMARY]
+CREATE  INDEX [IX_CharStats_Wins] ON [dbo].[CharStats]([CivID], [Wins], [CharacterID]) 
 GO
-CREATE  INDEX [IX_CharStats_Losses] ON [dbo].[CharStats]([CivID], [Losses], [CharacterID]) ON [PRIMARY]
+CREATE  INDEX [IX_CharStats_Losses] ON [dbo].[CharStats]([CivID], [Losses], [CharacterID]) 
 GO
-CREATE  INDEX [IX_CharStats_WinsCmd] ON [dbo].[CharStats]([CivID], [WinsCmd], [CharacterID]) ON [PRIMARY]
+CREATE  INDEX [IX_CharStats_WinsCmd] ON [dbo].[CharStats]([CivID], [WinsCmd], [CharacterID]) 
 GO
-CREATE  INDEX [IX_CharStats_LossesCmd] ON [dbo].[CharStats]([CivID], [LossesCmd], [CharacterID]) ON [PRIMARY]
+CREATE  INDEX [IX_CharStats_LossesCmd] ON [dbo].[CharStats]([CivID], [LossesCmd], [CharacterID]) 
 GO
-CREATE  INDEX [IX_CharStats_Score] ON [dbo].[CharStats]([CivID], [Score], [CharacterID]) ON [PRIMARY]
+CREATE  INDEX [IX_CharStats_Score] ON [dbo].[CharStats]([CivID], [Score], [CharacterID]) 
 GO
-CREATE  INDEX [IX_CharStats_MinutesPlayed] ON [dbo].[CharStats]([CivID], [MinutesPlayed], [CharacterID]) ON [PRIMARY]
+CREATE  INDEX [IX_CharStats_MinutesPlayed] ON [dbo].[CharStats]([CivID], [MinutesPlayed], [CharacterID]) 
 GO
-CREATE  INDEX [IX_CharStats_BaseKills] ON [dbo].[CharStats]([CivID], [BaseKills], [CharacterID]) ON [PRIMARY]
+CREATE  INDEX [IX_CharStats_BaseKills] ON [dbo].[CharStats]([CivID], [BaseKills], [CharacterID]) 
 GO
-CREATE  INDEX [IX_CharStats_BaseCaptures] ON [dbo].[CharStats]([CivID], [BaseCaptures], [CharacterID]) ON [PRIMARY]
+CREATE  INDEX [IX_CharStats_BaseCaptures] ON [dbo].[CharStats]([CivID], [BaseCaptures], [CharacterID]) 
 GO
-CREATE  INDEX [IX_CharStats_Kills] ON [dbo].[CharStats]([CivID], [Kills], [CharacterID]) ON [PRIMARY]
+CREATE  INDEX [IX_CharStats_Kills] ON [dbo].[CharStats]([CivID], [Kills], [CharacterID]) 
 GO
-CREATE  INDEX [IX_CharStats_Rating] ON [dbo].[CharStats]([CivID], [Rating], [CharacterID]) ON [PRIMARY]
+CREATE  INDEX [IX_CharStats_Rating] ON [dbo].[CharStats]([CivID], [Rating], [CharacterID]) 
 GO
-CREATE  INDEX [IX_CharStats_Name] ON [dbo].[CharStats]([CivID], [CharacterName], [CharacterID]) ON [PRIMARY]
+CREATE  INDEX [IX_CharStats_Name] ON [dbo].[CharStats]([CivID], [CharacterName], [CharacterID]) 

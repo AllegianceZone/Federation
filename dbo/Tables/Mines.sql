@@ -10,7 +10,7 @@
 	[percentBlueMunition] tinyint NOT NULL ,
 	[percentAlphaMunition] tinyint NOT NULL ,
 	[PRIconMunition] char (12) NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[Mines] ADD 
 	CONSTRAINT [FK_Mines_Expendable] FOREIGN KEY 
@@ -22,9 +22,9 @@ ALTER TABLE [dbo].[Mines] ADD
 GO
 ALTER TABLE [dbo].[Mines] WITH NOCHECK ADD 	CONSTRAINT [DF_Mines_DamageType] DEFAULT (0) FOR [DamageType]
 GO
-ALTER TABLE [dbo].[Mines] WITH NOCHECK ADD 	CONSTRAINT [PK_Mines] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[Mines] WITH NOCHECK ADD 	CONSTRAINT [PK_Mines] PRIMARY KEY  CLUSTERED 
 	(
 		[ExpendableID]
-	)  ON [PRIMARY] 
+	)   
 GO
 ALTER TABLE [dbo].[Mines] WITH NOCHECK ADD 	CONSTRAINT [CK_Mines] CHECK ([MunitionCount] <= 50)

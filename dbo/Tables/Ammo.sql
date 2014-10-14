@@ -2,7 +2,7 @@
 	[PartID] [smallint] NOT NULL ,
 	[Qty] [smallint] NOT NULL ,
 	[AmmoType] [tinyint] NOT NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[Ammo] ADD 
 	CONSTRAINT [FK_Ammo_Parts] FOREIGN KEY 
@@ -14,7 +14,7 @@ ALTER TABLE [dbo].[Ammo] ADD
 GO
 ALTER TABLE [dbo].[Ammo] WITH NOCHECK ADD 	CONSTRAINT [DF_Ammo_AmmoType] DEFAULT (0) FOR [AmmoType]
 GO
-ALTER TABLE [dbo].[Ammo] WITH NOCHECK ADD 	CONSTRAINT [PK_Ammo] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[Ammo] WITH NOCHECK ADD 	CONSTRAINT [PK_Ammo] PRIMARY KEY  CLUSTERED 
 	(
 		[PartID]
-	)  ON [PRIMARY]
+	)  

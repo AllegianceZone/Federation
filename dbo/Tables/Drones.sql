@@ -11,7 +11,7 @@
 	[GroupID] tinyint NULL ,
 	[SortOrder] int NULL ,
 	[ExpendableID] [smallint] NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[Drones] WITH NOCHECK ADD 	CONSTRAINT [DF_Drones_TechBitsRequired] DEFAULT (0) FOR [TechBitsRequired]
 GO
@@ -21,10 +21,10 @@ ALTER TABLE [dbo].[Drones] WITH NOCHECK ADD 	CONSTRAINT [DF_Drones_SecondsToBuil
 GO
 ALTER TABLE [dbo].[Drones] WITH NOCHECK ADD 	CONSTRAINT [DF_Drones_GroupID] DEFAULT (0) FOR [GroupID]
 GO
-ALTER TABLE [dbo].[Drones] WITH NOCHECK ADD 	CONSTRAINT [PK_Drones] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[Drones] WITH NOCHECK ADD 	CONSTRAINT [PK_Drones] PRIMARY KEY  CLUSTERED 
 	(
 		[DroneID]
-	)  ON [PRIMARY] 
+	)   
 GO
 ALTER TABLE [dbo].[Drones] WITH NOCHECK ADD 	CONSTRAINT [CK_Drones] CHECK ([Price] > 0 or [DroneType] = 6)
 GO

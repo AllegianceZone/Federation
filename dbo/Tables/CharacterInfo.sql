@@ -5,7 +5,7 @@
 	[CreationDate] [datetime] NOT NULL ,
 	[CanCheat] [bit] NOT NULL ,
 	[ICQID] [int] NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[CharacterInfo] WITH NOCHECK ADD 	CONSTRAINT [DF_CharacterInfo_Description] DEFAULT ('') FOR [Description]
 GO
@@ -13,9 +13,9 @@ ALTER TABLE [dbo].[CharacterInfo] WITH NOCHECK ADD 	CONSTRAINT [DF__character__c
 GO
 ALTER TABLE [dbo].[CharacterInfo] WITH NOCHECK ADD 	CONSTRAINT [DF_CharacterInfo_CanCheat] DEFAULT (0) FOR [CanCheat]
 GO
-ALTER TABLE [dbo].[CharacterInfo] WITH NOCHECK ADD 	CONSTRAINT [PK_CharacterInfo] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[CharacterInfo] WITH NOCHECK ADD 	CONSTRAINT [PK_CharacterInfo] PRIMARY KEY  CLUSTERED 
 	(
 		[CharacterID]
-	)  ON [PRIMARY]
+	)  
 GO
-CREATE  UNIQUE  INDEX [IX_CharacterName] ON [dbo].[CharacterInfo]([CharacterName]) ON [PRIMARY]
+CREATE  UNIQUE  INDEX [IX_CharacterName] ON [dbo].[CharacterInfo]([CharacterName]) 

@@ -1,4 +1,5 @@
 ﻿CREATE TABLE [dbo].[GameResults] (
+	ID int identity not null primary key clustered,
 	[GameID] [char] (17) NOT NULL ,
 	[Name] [char] (64) NOT NULL ,
 	[WinningTeam] char (24) NOT NULL ,
@@ -18,11 +19,11 @@
 	[Duration] [int] NOT NULL ,
 	[StartTime] AS (dateadd(second,(((-[Duration]))),[EndTime])) ,
 	[EndTime] [datetime] NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[GameResults] WITH NOCHECK ADD 
 	CONSTRAINT [DF__GameResul__EndTi__36B12243] DEFAULT (getdate()) FOR [EndTime]
 GO
-CREATE  INDEX [IX_GameResults_GameID] ON [dbo].[GameResults]([GameID]) ON [PRIMARY]
+CREATE  INDEX [IX_GameResults_GameID] ON [dbo].[GameResults]([GameID]) 
 GO
-CREATE  INDEX [IX_GameResults_EndTime] ON [dbo].[GameResults]([EndTime]) ON [PRIMARY]
+CREATE  INDEX [IX_GameResults_EndTime] ON [dbo].[GameResults]([EndTime]) 

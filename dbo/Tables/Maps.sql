@@ -6,13 +6,13 @@
 	[IsTrainingOnly] [bit] NOT NULL ,
 	[IsUserOption] [bit] NOT NULL ,
 	[NumTeams] [tinyint] NOT NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[Maps] WITH NOCHECK ADD 	CONSTRAINT [DF_Maps_IsUserMap] DEFAULT (0) FOR [IsUserOption]
 GO
 ALTER TABLE [dbo].[Maps] WITH NOCHECK ADD 	CONSTRAINT [DF_Maps_NumTeams] DEFAULT (2) FOR [NumTeams]
 GO
-ALTER TABLE [dbo].[Maps] WITH NOCHECK ADD 	CONSTRAINT [PK_Maps] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[Maps] WITH NOCHECK ADD 	CONSTRAINT [PK_Maps] PRIMARY KEY  CLUSTERED 
 	(
 		[MapID]
-	)  ON [PRIMARY]
+	)  

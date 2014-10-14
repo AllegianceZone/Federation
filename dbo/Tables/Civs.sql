@@ -26,7 +26,7 @@
 	[TechBitsCivNoDev] [char] (800) NOT NULL ,
 	[BonusMoney] [real] NOT NULL ,
 	[IncomeMoney] [real] NOT NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[Civs] ADD 
 	CONSTRAINT [FK_Civs_Parts] FOREIGN KEY 
@@ -144,10 +144,10 @@ ALTER TABLE [dbo].[Civs] WITH NOCHECK ADD 	CONSTRAINT [DF_Civs_BonusMoney] DEFAU
 GO
 ALTER TABLE [dbo].[Civs] WITH NOCHECK ADD 	CONSTRAINT [DF_Civs_IncomeMoney] DEFAULT (0.0) FOR [IncomeMoney]
 GO
-ALTER TABLE [dbo].[Civs] WITH NOCHECK ADD 	CONSTRAINT [PK_Civs] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[Civs] WITH NOCHECK ADD 	CONSTRAINT [PK_Civs] PRIMARY KEY  CLUSTERED 
 	(
 		[CivID]
-	)  ON [PRIMARY]
+	)  
 GO
 CREATE Trigger Civs_Trigger_InsUpd
 On dbo.Civs

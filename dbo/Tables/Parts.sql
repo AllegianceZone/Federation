@@ -20,7 +20,7 @@
 	[SortOrder] int NULL ,
 	[SecondsToBuild] [smallint] NOT NULL ,
 	[GroupID] tinyint NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[Parts] ADD 
 	CONSTRAINT [FK_Parts_Parts] FOREIGN KEY 
@@ -55,10 +55,10 @@ ALTER TABLE [dbo].[Parts] WITH NOCHECK ADD 	CONSTRAINT [DF_Parts_SecondsToBuild]
 GO
 ALTER TABLE [dbo].[Parts] WITH NOCHECK ADD 	CONSTRAINT [DF_Parts_GroupID] DEFAULT (0) FOR [GroupID]
 GO
-ALTER TABLE [dbo].[Parts] WITH NOCHECK ADD 	CONSTRAINT [PK_Parts] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[Parts] WITH NOCHECK ADD 	CONSTRAINT [PK_Parts] PRIMARY KEY  CLUSTERED 
 	(
 		[PartID]
-	)  ON [PRIMARY] 
+	)   
 GO
 ALTER TABLE [dbo].[Parts] WITH NOCHECK ADD 	CONSTRAINT [CK_Parts] CHECK ([Price] >= 0 and [Mass] > 0)
 GO

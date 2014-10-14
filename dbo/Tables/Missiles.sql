@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Missiles] (
-	[ExpendableID] [smallint] NOT NULL ,
+	[ExpendableID] [smallint] NOT NULL,
 	[Acceleration] [real] NOT NULL ,
 	[TurnRate] [real] NOT NULL ,
 	[InitialSpeed] [real] NOT NULL ,
@@ -18,7 +18,7 @@
 	[ChaffResistance] [real] NOT NULL ,
 	[LaunchSound] smallint NOT NULL ,
 	[FlightSound] smallint NOT NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[Missiles] ADD 
 	CONSTRAINT [FK_Missiles_Expendable] FOREIGN KEY 
@@ -42,7 +42,7 @@ ALTER TABLE [dbo].[Missiles] WITH NOCHECK ADD 	CONSTRAINT [DF_Missiles_LaunchSou
 GO
 ALTER TABLE [dbo].[Missiles] WITH NOCHECK ADD 	CONSTRAINT [DF_Missiles_FlightSound] DEFAULT (540) FOR [FlightSound]
 GO
-ALTER TABLE [dbo].[Missiles] WITH NOCHECK ADD 	CONSTRAINT [PK_Missiles] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[Missiles] WITH NOCHECK ADD 	CONSTRAINT [PK_Missiles] PRIMARY KEY CLUSTERED 
 	(
 		[ExpendableID]
-	)  ON [PRIMARY]
+	)  

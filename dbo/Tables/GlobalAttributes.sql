@@ -25,7 +25,7 @@
 	[DevelopmentCost] [smallint] NOT NULL ,
 	[DevelopmentTime] [smallint] NOT NULL ,
 	[MiningCapacity] [smallint] NOT NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[GlobalAttributes] WITH NOCHECK ADD 	CONSTRAINT [DF_GlobalAttributes_MaxSpeed] DEFAULT (0) FOR [MaxSpeed]
 GO
@@ -77,8 +77,8 @@ ALTER TABLE [dbo].[GlobalAttributes] WITH NOCHECK ADD 	CONSTRAINT [DF_GlobalAttr
 GO
 ALTER TABLE [dbo].[GlobalAttributes] WITH NOCHECK ADD 	CONSTRAINT [DF_GlobalAttributes_MiningCapacity] DEFAULT (0) FOR [MiningCapacity]
 GO
-ALTER TABLE [dbo].[GlobalAttributes] WITH NOCHECK ADD 	CONSTRAINT [PK_GlobalAttributes] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[GlobalAttributes] WITH NOCHECK ADD 	CONSTRAINT [PK_GlobalAttributes] PRIMARY KEY  CLUSTERED 
 	(
 		[GlobalAttributeID]
-	)  ON [PRIMARY]
+	)  
 GO

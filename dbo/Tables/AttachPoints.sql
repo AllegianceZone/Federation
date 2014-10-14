@@ -9,7 +9,7 @@
 	[InteriorSound] smallint NOT NULL ,
 	[TurnSound] smallint NOT NULL ,
 	[LocationAbreviation] [char] (8) NOT NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[AttachPoints] ADD 
 	CONSTRAINT [FK_AttachPoints_ShipTypes] FOREIGN KEY 
@@ -31,11 +31,11 @@ ALTER TABLE [dbo].[AttachPoints] WITH NOCHECK ADD 	CONSTRAINT [DF_AttachPoints_T
 GO
 ALTER TABLE [dbo].[AttachPoints] WITH NOCHECK ADD 	CONSTRAINT [DF_AttachPoints_LocationAbreviation] DEFAULT (' ') FOR [LocationAbreviation]
 GO
-ALTER TABLE [dbo].[AttachPoints] WITH NOCHECK ADD 	CONSTRAINT [PK_AttachPoints] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[AttachPoints] WITH NOCHECK ADD 	CONSTRAINT [PK_AttachPoints] PRIMARY KEY  CLUSTERED 
 	(
 		[ShipTypeID],
 		[AttachPointID]
-	)  ON [PRIMARY]
+	)  
 GO
 CREATE Trigger AttachPoints_Trigger_InsUpd
 On dbo.AttachPoints

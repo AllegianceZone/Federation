@@ -9,7 +9,7 @@
 	[SingleShotSound] smallint NOT NULL ,
 	[BurstShotSound] smallint NOT NULL ,
 	[Dispersion] [real] NOT NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[Weapons] ADD 
 	CONSTRAINT [FK_Weapons_Parts] FOREIGN KEY 
@@ -38,9 +38,9 @@ ALTER TABLE [dbo].[Weapons] WITH NOCHECK ADD 	CONSTRAINT [DF_Weapons_BurstShotSo
 GO
 ALTER TABLE [dbo].[Weapons] WITH NOCHECK ADD 	CONSTRAINT [DF_Weapons_Dispersion] DEFAULT (0.005) FOR [Dispersion]
 GO
-ALTER TABLE [dbo].[Weapons] WITH NOCHECK ADD 	CONSTRAINT [PK_WeaponTypes] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[Weapons] WITH NOCHECK ADD 	CONSTRAINT [PK_WeaponTypes] PRIMARY KEY  CLUSTERED 
 	(
 		[PartID]
-	)  ON [PRIMARY] 
+	)   
 GO
 ALTER TABLE [dbo].[Weapons] WITH NOCHECK ADD 	CONSTRAINT [CK_Weapons] CHECK ([dTimeBurstShots] > 0 and [dTimeReady] > 0 and [EnergyPerShot] >= 0 and [cBulletsPerShot] >= 0 and [Dispersion] >= 0 and [Dispersion] <= 0.15)

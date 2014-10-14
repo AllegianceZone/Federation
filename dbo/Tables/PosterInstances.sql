@@ -11,7 +11,7 @@
 	[Color] [int] NOT NULL ,
 	[Longitude] [smallint] NOT NULL ,
 	[Latitude] [smallint] NOT NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[PosterInstances] ADD 
 	CONSTRAINT [FK_PosterInstances_SectorInfo] FOREIGN KEY 
@@ -24,8 +24,8 @@ ALTER TABLE [dbo].[PosterInstances] ADD
 	)
 GO
 ALTER TABLE [dbo].[PosterInstances] WITH NOCHECK ADD 
-	CONSTRAINT [PK_PosterInstances] PRIMARY KEY  NONCLUSTERED 
+	CONSTRAINT [PK_PosterInstances] PRIMARY KEY  CLUSTERED 
 	(
 		[PosterID],
 		[MapID]
-	)  ON [PRIMARY]
+	)  

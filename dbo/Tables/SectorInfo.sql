@@ -17,7 +17,7 @@
 	[PlanetLongitude] tinyint NULL ,
 	[PlanetRadius] [tinyint] NULL ,
 	[IsHomeSector] [bit] NOT NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[SectorInfo] ADD 
 	CONSTRAINT [FK_SectorInfo_Maps] FOREIGN KEY 
@@ -41,8 +41,8 @@ ALTER TABLE [dbo].[SectorInfo] WITH NOCHECK ADD 	CONSTRAINT [DF_SectorInfo_Debri
 GO
 ALTER TABLE [dbo].[SectorInfo] WITH NOCHECK ADD 	CONSTRAINT [DF_SectorInfo_starSeed] DEFAULT (1) FOR [starSeed]
 GO
-ALTER TABLE [dbo].[SectorInfo] WITH NOCHECK ADD 	CONSTRAINT [PK_SectorInfo] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[SectorInfo] WITH NOCHECK ADD 	CONSTRAINT [PK_SectorInfo] PRIMARY KEY  CLUSTERED 
 	(
 		[MapID],
 		[SectorID]
-	)  ON [PRIMARY]
+	)  

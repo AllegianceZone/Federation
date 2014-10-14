@@ -25,7 +25,7 @@
 	[RotationAz] [real] NULL ,
 	[RotationR] [real] NULL ,
 	[Name] char (24) NOT NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[Asteroids] ADD 
 	CONSTRAINT [FK_Asteroids_SectorInfo] FOREIGN KEY 
@@ -41,10 +41,10 @@ ALTER TABLE [dbo].[Asteroids] WITH NOCHECK ADD 	CONSTRAINT [DF_Asteroids_FileMod
 GO
 ALTER TABLE [dbo].[Asteroids] WITH NOCHECK ADD 	CONSTRAINT [DF_Asteroids_FileIcon] DEFAULT ('meteoricon') FOR [FileIcon]
 GO
-ALTER TABLE [dbo].[Asteroids] WITH NOCHECK ADD 	CONSTRAINT [PK_Asteroids] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[Asteroids] WITH NOCHECK ADD 	CONSTRAINT [PK_Asteroids] PRIMARY KEY  CLUSTERED 
 	(
 		[MapID],
 		[AsteroidID]
-	)  ON [PRIMARY]
+	)  
 GO
-CREATE  INDEX [IX_Asteroids] ON [dbo].[Asteroids]([SectorID]) ON [PRIMARY]
+CREATE  INDEX [IX_Asteroids] ON [dbo].[Asteroids]([SectorID]) 

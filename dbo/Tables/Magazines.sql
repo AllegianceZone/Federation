@@ -4,7 +4,7 @@
 	[ExpendableID] [smallint] NOT NULL ,
 	[SuccessorPartID] [smallint] NULL ,
 	[LaunchCount] [smallint] NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[Magazines] ADD 
 	CONSTRAINT [FK_Magazines_Expendable] FOREIGN KEY 
@@ -29,7 +29,7 @@ ALTER TABLE [dbo].[Magazines] ADD 	CONSTRAINT [FK_Magazines_Parts] FOREIGN KEY
 	)
 GO
 ALTER TABLE [dbo].[Magazines] WITH NOCHECK ADD 
-	CONSTRAINT [PK_Magazines] PRIMARY KEY  NONCLUSTERED 
+	CONSTRAINT [PK_Magazines] PRIMARY KEY  CLUSTERED 
 	(
 		[PartID]
-	)  ON [PRIMARY]
+	)  

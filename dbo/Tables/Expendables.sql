@@ -28,7 +28,7 @@
 	[GroupID] tinyint NULL ,
 	[ExpendableSize] [smallint] NOT NULL ,
 	[Capabilities] [smallint] NOT NULL 
-) ON [PRIMARY]
+) 
 GO
 ALTER TABLE [dbo].[Expendables] WITH NOCHECK ADD CONSTRAINT [DF_Expendables_TechBitsRequired] DEFAULT ('') FOR [TechBitsRequired]
 GO
@@ -42,10 +42,10 @@ ALTER TABLE [dbo].[Expendables] WITH NOCHECK ADD 	CONSTRAINT [DF_Expendables_Sec
 GO
 ALTER TABLE [dbo].[Expendables] WITH NOCHECK ADD 	CONSTRAINT [DF_Expendables_GroupID] DEFAULT (0) FOR [GroupID]
 GO
-ALTER TABLE [dbo].[Expendables] WITH NOCHECK ADD 	CONSTRAINT [PK_Expendable] PRIMARY KEY  NONCLUSTERED 
+ALTER TABLE [dbo].[Expendables] WITH NOCHECK ADD 	CONSTRAINT [PK_Expendable] PRIMARY KEY  CLUSTERED 
 	(
 		[ExpendableID]
-	)  ON [PRIMARY] 
+	)   
 GO
 ALTER TABLE [dbo].[Expendables] WITH NOCHECK ADD 	CONSTRAINT [CK_Expendables] CHECK ([Price] >= 0 and [Mass] > 0 and [Radius] > 0 and [LoadTime] >= 0 and [LifeSpan] >= 0 and [HitPoints] > 0)
 GO
