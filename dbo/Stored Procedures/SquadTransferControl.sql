@@ -16,7 +16,7 @@ declare @ErrorCode as int
 -- add new leader to ownership log 
 if @errorcode = 0
 begin
-	declare @charname name
+	declare @charname char (24)
 	select @charname = charactername from characterinfo where characterid = @newownerid
 	if @charname is not null exec SquadAddNewLeaderToLog @SquadID, @charname
 end 

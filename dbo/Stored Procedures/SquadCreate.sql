@@ -49,7 +49,7 @@ select @squadID = i_team_id from #temp2 where vc_team_name = @SquadName
 		select @SquadID, @SquadName, 0, 0, 0, '', @civID, 0
 		
 		-- add new leader to ownership log 
-    	declare @charname name
+    	declare @charname char (24)
 		select @charname = charactername from characterinfo where characterid = @ownerid
 		if @charname is not null exec SquadAddNewLeaderToLog @SquadID, @charname
 	end
