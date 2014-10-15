@@ -75,7 +75,7 @@ declare @ok bit
 
 If Update (TechBitsRequired) or  Update (TechBitsEffect) or Update(TechBitsLocal)
 Begin
-    declare @techbitsR TechBits, @techbitsE TechBits, @techbitsL TechBits
+    declare @techbitsR char (256), @techbitsE char (256), @techbitsL char (256)
     select @ok = 0
     /* need to see if ANY modified row has bogus techbits */
     Declare curIns Cursor Local For
@@ -117,12 +117,12 @@ Begin
     declare     @iIndex				int
     declare     @siStationType      smallint
     declare     @siUpgradeType      smallint
-    declare     @szStationEffect    TechBits
-    declare     @szUpgradeEffect    TechBits
+    declare     @szStationEffect    char (256)
+    declare     @szUpgradeEffect    char (256)
     declare     @iStationEffect     int
     declare     @iUpgradeEffect     int
-    declare     @szStationLocal     TechBits
-    declare     @szUpgradeLocal     TechBits
+    declare     @szStationLocal     char (256)
+    declare     @szUpgradeLocal     char (256)
     declare     @iStationLocal      int
     declare     @iUpgradeLocal      int
     declare     @szProblemBits      char(20)
@@ -157,7 +157,7 @@ Begin
     			Select @siT = @siStationType
     			Select @siStationType = @siUpgradeType
     			Select @siUpgradeType = @siT
-    			declare @tbT TechBits
+    			declare @tbT char (256)
     			Select @tbT = @szStationEffect
     			Select @szStationEffect = @szUpgradeEffect
     			Select @szUpgradeEffect = @tbT

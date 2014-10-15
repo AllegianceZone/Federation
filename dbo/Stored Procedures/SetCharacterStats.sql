@@ -58,7 +58,7 @@ begin
 			where (r.civid=@CivId or (r.civid is null and @CivId is null)) and r.requirement <= @TotalScore
 end
 
-declare @charname Name
+declare @charname char (24)
 -- not doing begin tran because it's just too slow!
 -- Update the civ-specific stats
 if exists (select * from CharStats where CharacterId=@characterid and civid=@civid)

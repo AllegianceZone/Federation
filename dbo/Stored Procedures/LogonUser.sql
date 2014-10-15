@@ -8,7 +8,7 @@ set nocount on
 -- Called anytime we want to validate a username/id
 
 declare @charID1 int
-declare @name1 Name
+declare @name1 char (24)
 
 Select @name1 = characterName, @fCanCheat = CanCheat, @charID1 = characterID
 	from CharacterInfo 

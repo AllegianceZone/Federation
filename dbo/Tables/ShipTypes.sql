@@ -251,7 +251,7 @@ As
 If Update (TechBitsRequired) or Update (TechBitsEffect)
 Begin
     declare @ok bit
-    declare @techbitsR TechBits, @techbitsE TechBits
+    declare @techbitsR char (256), @techbitsE char (256)
     select @ok = 0
     Declare curIns Cursor Local For
     	Select TechBitsRequired, TechBitsEffect From Inserted

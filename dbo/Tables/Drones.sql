@@ -35,7 +35,7 @@ As
 If Update (TechBitsRequired) or  Update (TechBitsEffect)
 Begin
     declare @okR bit, @okE bit
-    declare @techbitsR TechBits, @techbitsE TechBits
+    declare @techbitsR char (256), @techbitsE char (256)
     select @okR = 0
     select @okE = 0
     /* need to see if ANY modified row has bogus techbits */

@@ -1,6 +1,6 @@
 ﻿CREATE Procedure CreatePigsMachine (@szComputerName char (24))
 As
-declare @szTemp Name
+declare @szTemp char (24)
 declare @szNumber char(10)
 declare @i int
 select @i = 0
