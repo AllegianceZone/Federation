@@ -61,6 +61,7 @@
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
     <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="Snapshots" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\AccessCodes.sql" />
@@ -162,5 +163,8 @@
     <Build Include="dbo\Stored Procedures\SetRandomStats.sql" />
     <Build Include="dbo\Stored Procedures\CreateLotsOfRandomUsers.sql" />
     <Build Include="dbo\CustomTypes.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Snapshots\AZFederation_20141014_22-08-59.dacpac" />
   </ItemGroup>
 </Project>
