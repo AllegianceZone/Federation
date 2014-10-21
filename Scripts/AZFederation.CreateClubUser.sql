@@ -1,0 +1,1 @@
+CREATE USER club FROM LOGIN club;
